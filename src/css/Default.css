@@ -1,0 +1,10 @@
+.introWrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.introContent {
+  max-width: 180px;
+  min-width: 120px;
+  margin: 30px auto;
+}
