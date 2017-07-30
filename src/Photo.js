@@ -1,22 +1,7 @@
 import React from 'react'
+import Img from './Img'
+import { Spin } from 'antd'
 import './css/Photo.css'
-
-class Img extends React.Component {
-  state = {
-    hidden: true
-  }
-
-  isLoaded() {
-    console.log('loaded')
-    this.setState({ hidden: false });
-  }
-
-  render() {
-    return (
-      <img onLoad={this.isLoaded.bind(this)} className={this.state.hidden? 'hidden': ''} className="item" src={this.props.src} alt={this.props.name} />
-    );
-  }
-}
 
 function importAll(r) {
   let images = {};
@@ -31,13 +16,27 @@ const images = importAll(
 );
 
 class Photo extends React.Component {
+  state = {
+    done: false,
+    cnt: 0
+  }  
+
+  isDone() {
+    this.state.cnt++;
+    if(document.getElementsByClassName("masonry")[0].children.length) {
+      this.setState({done: true});
+    }
+  }
+
   render() {
     return (
+      <Spin size="large" spinning={!this.state.done}>
       <div className="masonry">
-        {Object.keys(images).map(function(key, id) {
-          return <Img src={images[key]} name={key} key={id} />;
+        {Object.keys(images).map((key, id) => {
+          return <Img src={images[key]} name={key} key={id} isLoaded={ this.isDone.bind(this) } />;
         })}
       </div>
+      </Spin>
     );
   }
 }
