@@ -7,3 +7,9 @@
 .custom-card p {
   color: #999;
 }
+
+.ant-card {
+  display: inline-block;
+  margin: 5px;
+  width: 240px;
+}

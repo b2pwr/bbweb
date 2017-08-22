@@ -1,13 +1,9 @@
-.custom-image img {
-  display: block;
-}
-.custom-card {
-  padding: 10px 16px;
-}
-.custom-card p {
-  color: #999;
+.aboutWrapper {
+  font-size: 14px;
+  margin: 20px auto;
+  width: fit-content;
 }
 
-.ant-card-bordered {
-  margin: 20px auto;
+.block {
+  margin-bottom: 20px;
 }
